@@ -1,0 +1,30 @@
+.profile-wrapper {
+  width: 80%;
+  height: 80vh;
+  margin: 20px auto;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.profile-pic img{
+  border-radius: 50%;
+}
+
+.user-year button {
+  outline: none;
+  border: none;
+  background: none;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+@media screen and (max-width: 750px){
+  .profile-wrapper {
+    flex-direction: column;
+  }
+  .profile-pic img{
+    width: 200px;
+    height: 200px;
+  }
+}

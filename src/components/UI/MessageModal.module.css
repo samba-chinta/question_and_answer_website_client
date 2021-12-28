@@ -1,0 +1,11 @@
+.messageModal_Wrapper {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.message {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 15px;
+  color: #fff;
+}

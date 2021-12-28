@@ -1,0 +1,39 @@
+.home {
+  width: 100%;
+  height: 88vh;
+  background: url('../../resources/edu_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(61, 90, 254, 0.7);
+  background-blend-mode:multiply;
+  display: grid;
+  place-items: center;
+}
+
+.home-text {
+  width: 50%;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 40px;
+  color: #fff;
+  line-height: 2em;
+}
+
+.register {
+  border: solid 1px #fff;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  margin: 10px;
+}
+
+.register:hover {
+  background-color: aliceblue;
+  color: #000;
+  transition: background-color 0.5s ease-in;
+}
+
+@media screen and (max-width: 600px) {
+  .home-text {
+    width: 90%;
+  }
+}

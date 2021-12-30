@@ -11,7 +11,7 @@ const Navigation = (props) => {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
 
   const logoutHandler = (e) => {
-    localStorage.removeItem('auth-mail');
+    localStorage.removeItem('auth-token');
     dispatch(authActions.logout());
   };
 

@@ -40,3 +40,9 @@
 .answerForm [type="submit"]:hover {
   background-color: seagreen;
 }
+
+.answers-count{
+  background-color: #eee;
+  padding: 10px;
+  cursor: pointer;
+}

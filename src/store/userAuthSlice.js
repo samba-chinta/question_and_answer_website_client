@@ -4,7 +4,7 @@ const userAuthSlice = createSlice({
   name: "User Authentication",
   initialState: {
     email: "",
-    isLoggedIn: false,
+    isLoggedIn: false
   },
   reducers: {
     login(state, action) {

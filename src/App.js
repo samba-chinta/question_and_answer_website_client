@@ -11,6 +11,7 @@ import Logout from "./components/Authentication/Logout";
 import PageNotFound from "./components/UI/PageNotFound";
 import Profile from "./components/Profile/Profile";
 import Main from "./components/Main/Main";
+import ResetPassword from "./components/Authentication/ResetPassword";
 import { authActions } from "./store/userAuthSlice";
 import "./App.css";
 
@@ -20,11 +21,12 @@ function App() {
 
   // checking whether user is loggedin or not
   useEffect(() => {
-    const email = localStorage.getItem("auth-mail");
-    if (email) {
+    const token = localStorage.getItem("auth-token");
+    if (token) {
+      const { userEmail } = JSON.parse(token);
       dispatch(
         authActions.login({
-          email: email,
+          email: userEmail,
         })
       );
     }
@@ -37,6 +39,7 @@ function App() {
         {!isLoggedIn && <Route path="/" element={<Home />} exact />}
         {!isLoggedIn && <Route path="/login" element={<Login />} exact />}
         {!isLoggedIn && <Route path="/register" element={<Register />} exact />}
+        {!isLoggedIn && <Route path="/resetpassword" element={<ResetPassword />} exact />}
         {isLoggedIn && <Route path="/" element={<Main />} exact />}
         {isLoggedIn && (
           <Route

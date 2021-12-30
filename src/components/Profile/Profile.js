@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import classes from "./Profile.module.css";
 
 const Profile = (props) => {
+  const userEmail = useSelector((state) => state.email);
+  const [profile, setProfile] = useState({
+    name: '',
+    email: '',
+    branch: '',
+    year: '',
+    image: ''
+  });
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await fetch(`http://localhost:4000/profile/${userEmail}`);
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        const userProfile = await res.json();
+        setProfile(userProfile);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchProfile();
+  }, [userEmail]);
 
   return (
     <div className={classes["profile-wrapper"]}>
@@ -12,19 +37,19 @@ const Profile = (props) => {
       <div className={classes["user-details"]}>
         <p>
           <b>Name: </b>
-          Samba Chinta
+          {profile.name ? profile.name : ""}
         </p>
         <p>
           <b>Email: </b>
-          19131a0542@gvpce.ac.in
+          {profile.email ? profile.email : ""}
         </p>
         <p>
           <b>Branch: </b>
-          Computer Science
+          {profile.branch ? profile.branch : ""}
         </p>
         <p>
           <b>Year: </b>
-          3
+          {profile.year ? profile.year : ""}
         </p>
       </div>
     </div>

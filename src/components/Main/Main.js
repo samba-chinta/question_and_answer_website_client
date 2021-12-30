@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import classes from "./Main.module.css";
 
+import classes from "./Main.module.css";
 import AskQuestionModal from "../User/AskQuestionModal";
 import QueryField from "./QueryField";
 import { data } from "./data";
+// import plus from "../../resources/plus.svg"
 
 const Main = (props) => {
   const [isAskQstnBtnClicked, setIsAskQstnBtnClicked] = useState(false);

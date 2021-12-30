@@ -19,6 +19,13 @@ const Login = (props) => {
   const [hasError, setHasError] = useState(false);
   const [isSuccessful, setIsSuccessful] = useState(false);
 
+  const dispatchLogin = (payload) => {
+    console.log(payload)
+    dispatch(authActions.login({
+      ...payload,
+    }))
+  }
+
   const sendRequest = async (payload) => {
     setIsLoading(true);
     try {
@@ -34,21 +41,40 @@ const Login = (props) => {
         throw new Error(res.message);
       }
 
+      const data = await res.json();
+
+      console.log(data)
       setIsLoading(false);
       setIsSuccessful(true);
-      localStorage.setItem('auth-mail', userEmail);
-      dispatch(
-        authActions.login({
-          email: userEmail,
-        })
-      );
-      return res;
+      localStorage.setItem('auth-token', JSON.stringify({
+        userEmail,
+        id: data.id
+      }));
+      dispatchLogin({
+        email: userEmail,
+      })
+      // return res;
     } catch (err) {
       setIsLoading(false);
       setHasError("Authentication Failed");
-      return err;
+      // return err;
     }
   };
+
+  // const sendRequest = async (payload) => {
+  //   setIsLoading(true);
+  //   await fetch("http://localhost:4000/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(payload),
+  //   })
+  //   .then(res => console.log(res.json()))
+  //   .then(data => console.log(data.id))
+  //   .catch(err => console.log(err))
+  //   setIsLoading(false);
+  // };
 
   const userEmailHandler = (e) => {
     setUserEmail(e.target.value);
@@ -69,8 +95,6 @@ const Login = (props) => {
       password: userPassword,
     };
     sendRequest(payload)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
   };
 
   return (

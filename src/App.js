@@ -12,6 +12,7 @@ import PageNotFound from "./components/UI/PageNotFound";
 import Profile from "./components/Profile/Profile";
 import Main from "./components/Main/Main";
 import ResetPassword from "./components/Authentication/ResetPassword";
+import UserQueries from "./components/Main/UserQueries";
 import { authActions } from "./store/userAuthSlice";
 import "./App.css";
 
@@ -39,20 +40,16 @@ function App() {
         {!isLoggedIn && <Route path="/" element={<Home />} exact />}
         {!isLoggedIn && <Route path="/login" element={<Login />} exact />}
         {!isLoggedIn && <Route path="/register" element={<Register />} exact />}
-        {!isLoggedIn && <Route path="/resetpassword" element={<ResetPassword />} exact />}
+        {!isLoggedIn && (
+          <Route path="/resetpassword" element={<ResetPassword />} exact />
+        )}
         {isLoggedIn && <Route path="/" element={<Main />} exact />}
         {isLoggedIn && (
-          <Route
-            path="/myquestions"
-            element={<h1>My questions Page</h1>}
-            exact
-          />
+          <Route path="/myquestions" element={<UserQueries />} exact />
         )}
-        {isLoggedIn && (
-          <Route path="/profile" element={<Profile/>} exact />
-        )}
+        {isLoggedIn && <Route path="/profile" element={<Profile />} exact />}
         {isLoggedIn && <Route path="/logout" element={<Logout />} exact />}
-        <Route path="*" element={<PageNotFound/>} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );

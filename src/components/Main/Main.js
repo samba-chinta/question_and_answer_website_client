@@ -4,8 +4,7 @@ import ReactDOM from "react-dom";
 import classes from "./Main.module.css";
 import AskQuestionModal from "../User/AskQuestionModal";
 import QueryField from "./QueryField";
-// import { data } from "./data";
-// import plus from "../../resources/plus.svg"
+import AddIcon from "../../resources/AddIcon"
 
 const Main = (props) => {
   const [recentQueries, setRecentQueries] = useState([]);
@@ -25,8 +24,8 @@ const Main = (props) => {
         }
 
         const q = await res.json();
-
-        setRecentQueries(q.data)
+        
+        setRecentQueries(q.data.reverse())
       } catch(err) {
         console.log(err);
       }
@@ -43,14 +42,14 @@ const Main = (props) => {
         )}
       <div className={classes["query-wrapper"]}>
         {recentQueries ? recentQueries.map((q) => {
-          return <QueryField query={q} key={Math.random().toString()} />;
+          return <QueryField query={q} key={Math.random().toString()} isHome="true"/>;
         }): ''}
       </div>
       <button
         className={classes["ask-question__btn"]}
         onClick={askQuestionButtonHandler}
       >
-        Ask Question
+        <AddIcon/>
       </button>
     </div>
   );

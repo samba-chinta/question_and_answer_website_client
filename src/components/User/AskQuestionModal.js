@@ -15,8 +15,8 @@ const AskQuestionModal = () => {
     for (let tag of tags.split(" ")) {
       setQuestionTags((prev) => [...prev, tag]);
     }
-    console.log(userQuestion)
-    console.log(questionTags)
+    console.log(userQuestion);
+    console.log(questionTags);
     e.preventDefault();
   };
 
@@ -24,21 +24,41 @@ const AskQuestionModal = () => {
     <div className={classes["askqstn-wrapper"]}>
       <form onSubmit={formSubmitHandler} className={classes["form-wrapper"]}>
         <h2>Ask Your Question</h2>
-        <input
-          type="text"
-          name="question"
-          className={classes["input-field"]}
-          placeholder="Type your Question"
-          onChange={userQuestionHandler}
-        />
-        <input
-          type="text"
-          name="tags"
-          className={classes["input-field"]}
-          id="qstnTags"
-          placeholder="Enter Tags related to question"
-        />
-        {/* <input type="file" name="file" onChange={selectedFileHandler} /> */}
+        <label htmlFor="question">
+          Question*
+          <input
+            type="text"
+            name="question"
+            className={classes["input-field"]}
+            onChange={userQuestionHandler}
+          />
+        </label>
+        <label htmlFor="tags">
+          Tags Related to your question*
+          <input
+            type="text"
+            name="tags"
+            className={classes["input-field"]}
+            id="qstnTags"
+          />
+        </label>
+        <label htmlFor="links">
+          Reference Link
+          <input
+            type="text"
+            name="lins"
+            className={classes["input-field"]}
+            id="links"
+          />
+        </label>
+        <label>
+          Any Additional details
+          <textarea rows={5} cols={30}></textarea>
+        </label>
+        <label htmlFor="file">
+          Upload your reference files if any
+          <input type="file" name="file" />
+        </label>
         <input
           type="submit"
           value="Ask Question"

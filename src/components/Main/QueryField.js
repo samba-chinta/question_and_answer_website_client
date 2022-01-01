@@ -6,7 +6,7 @@ import classes from "./Main.module.css";
 const QueryField = (props) => {
 
   return <div className={classes["queryfield-wrapper"]}>
-    <Question query = {props.query}/>
+    <Question query = {props.query} isHome = {props.isHome}/>
   </div>;
 };
 

@@ -8,6 +8,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.question{
+  font-weight: bold;
+}
+
 .askedby {
   align-self: flex-end;
   color: rgba(0, 0, 0, 0.7);
@@ -42,6 +46,10 @@
 }
 
 .answers-count{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   background-color: #eee;
   padding: 10px;
   cursor: pointer;

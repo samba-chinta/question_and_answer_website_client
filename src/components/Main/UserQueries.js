@@ -10,8 +10,6 @@ const UserQueries = (props) => {
   console.log(token)
   const userId = JSON.parse(token).id ;
 
-  console.log(userId)
-
   useEffect(() => {
     const getQueries = async () => {
       try{
@@ -22,8 +20,8 @@ const UserQueries = (props) => {
         }
 
         const q = await res.json();
-        console.log(q)
-        setUserQuestions(q.data)
+
+        setUserQuestions(q.data.reverse())
       } catch(err) {
         console.log(err);
       }
@@ -35,7 +33,7 @@ const UserQueries = (props) => {
     <div className={classes["main-wrapper"]}>
       <div className={classes["query-wrapper"]}>
         {userQuestions ? userQuestions.map((q) => {
-          return <QueryField query={q} key={Math.random().toString()} />;
+          return <QueryField query={q} key={Math.random().toString()} isHome="false"/>;
         }): ''}
       </div>
     </div>

@@ -1,4 +1,55 @@
 .answers-wrapper{
   padding: 10px;
   margin: 10px auto;
+  background-color: #fafafa;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px auto;
+}
+
+.answered_by {
+  align-self: flex-end;
+}
+
+.answer-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 10px 0;
+  gap: 10px 0;
+}
+
+.answer-controls .like-btn, .answer-controls .delete-btn {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.answer-controls .liked {
+  background-color: lawngreen;
+  cursor:not-allowed;
+}
+
+.answer-controls button {
+  width: 50%;
+  outline: none;
+  border: none;
+  padding: 10px;
+}
+
+.answer-controls button:hover{
+  transform: scale(0.98);
+}
+
+.answer-controls button:disabled {
+  cursor:not-allowed;
+}
+
+.answer-controls .delete-btn {
+  background-color: orangered;
+  color: #fff;
 }

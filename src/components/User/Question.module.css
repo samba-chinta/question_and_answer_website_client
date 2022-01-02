@@ -12,6 +12,10 @@
   font-weight: bold;
 }
 
+.info{
+  white-space: pre-wrap;
+}
+
 .askedby {
   align-self: flex-end;
   color: rgba(0, 0, 0, 0.7);

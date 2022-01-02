@@ -13,7 +13,7 @@ const Question = (props) => {
   const [isSuccessful, setIsSuccessful] = useState(false);
   const [isErrorOccurs, setIsErrorOccurs] = useState(false);
 
-  const { _id: question_id, question, user_id: by, addOns, tags } = props.query;
+  const { _id: question_id, question, user_id: by, link, tags, info } = props.query;
   const numberOfAnswers = props.query.answer.length;
 
   const token = localStorage.getItem("auth-token");
@@ -112,8 +112,12 @@ const Question = (props) => {
         })}
       </p>
       <div className={classes.addons}>
-        <b>Addons: </b>
-        {addOns}
+        <b>Reference Link: </b>
+        <a href={link}>{link}</a>
+      </div>
+      <div className={classes.info}>
+        <h5>Description: </h5>
+        {info}
       </div>
       {props.isHome === 'true' && (
         <form className={classes.answerForm} onSubmit={formSubmitHandler}>

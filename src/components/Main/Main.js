@@ -41,9 +41,9 @@ const Main = (props) => {
           document.getElementById("askquestion")
         )}
       <div className={classes["query-wrapper"]}>
-        {recentQueries ? recentQueries.map((q) => {
+        {recentQueries.length !== 0 ? recentQueries.map((q) => {
           return <QueryField query={q} key={Math.random().toString()} isHome="true"/>;
-        }): ''}
+        }): <h1>No Questions are Added</h1>}
       </div>
       <button
         className={classes["ask-question__btn"]}

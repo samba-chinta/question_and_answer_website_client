@@ -69,7 +69,7 @@ const Answers = (props) => {
 
       const data = await res.json();
       console.log(data);
-      window.location = "https://college-miniproject.herokuapp.com/"
+      window.location = "https://question-and-answer-website.vercel.app/"
     } catch (err) {
       console.log(err);
     }

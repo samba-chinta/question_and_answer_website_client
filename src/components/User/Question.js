@@ -72,7 +72,7 @@ const Question = (props) => {
     })
       .then((res) => {
         setIsSuccessful(true);
-        window.location = "https://college-miniproject.herokuapp.com/"
+        window.location = "https://question-and-answer-website.vercel.app/"
       })
       .catch((err) => {
         setIsErrorOccurs(true);

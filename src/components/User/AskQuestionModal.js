@@ -57,7 +57,7 @@ const AskQuestionModal = () => {
       const data = await res.json();
 
       if (data.status === 201) {
-        window.location = "https://college-miniproject.herokuapp.com/";
+        window.location = "https://question-and-answer-website.vercel.app/";
       }
     } catch (err) {
       console.log(err);

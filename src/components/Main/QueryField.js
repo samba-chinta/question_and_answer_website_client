@@ -10,7 +10,7 @@ const QueryField = (props) => {
   // console.log(qstn_id)
   const questionRemoveHandler = async () => {
     try {
-      const res = await fetch("http://localhost:4000/deletequery", {
+      const res = await fetch("https://college-miniproject.herokuapp.com/deletequery", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

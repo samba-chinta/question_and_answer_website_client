@@ -36,7 +36,7 @@ const Question = (props) => {
 
   const saveAnswer = async (payload) => {
     try {
-      const res = await fetch("http://localhost:4000/answer", {
+      const res = await fetch("https://college-miniproject.herokuapp.com/answer", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,7 +72,7 @@ const Question = (props) => {
     })
       .then((res) => {
         setIsSuccessful(true);
-        window.location = "http://localhost:3000/"
+        window.location = "https://college-miniproject.herokuapp.com/"
       })
       .catch((err) => {
         setIsErrorOccurs(true);
@@ -91,7 +91,7 @@ const Question = (props) => {
   useEffect(() => {
     const getUserEmail = async () => {
       try {
-        const res = await fetch(`http://localhost:4000/getuser/${by}`);
+        const res = await fetch(`https://college-miniproject.herokuapp.com/getuser/${by}`);
         if (!res.ok) {
           throw new Error(res.status);
         }

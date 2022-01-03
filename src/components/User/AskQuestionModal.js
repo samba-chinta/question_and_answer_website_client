@@ -35,7 +35,7 @@ const AskQuestionModal = () => {
 
   const askQuestionReqHandler = async () => {
     try {
-      const res = await fetch("http://localhost:4000/createquery", {
+      const res = await fetch("https://college-miniproject.herokuapp.com/createquery", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +57,7 @@ const AskQuestionModal = () => {
       const data = await res.json();
 
       if (data.status === 201) {
-        window.location = "http://localhost:3000/";
+        window.location = "https://college-miniproject.herokuapp.com/";
       }
     } catch (err) {
       console.log(err);

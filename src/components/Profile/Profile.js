@@ -16,7 +16,7 @@ const Profile = (props) => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch(`http://localhost:4000/profile/${userEmail}`);
+        const res = await fetch(`https://college-miniproject.herokuapp.com/profile/${userEmail}`);
         if (!res.ok) {
           throw new Error(res.status);
         }

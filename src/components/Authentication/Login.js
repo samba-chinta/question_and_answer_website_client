@@ -29,7 +29,7 @@ const Login = (props) => {
   const sendRequest = async (payload) => {
     setIsLoading(true);
     try {
-      const res = await fetch("http://localhost:4000/login", {
+      const res = await fetch("https://college-miniproject.herokuapp.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

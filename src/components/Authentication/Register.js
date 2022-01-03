@@ -47,7 +47,7 @@ const Register = (props) => {
   const sendRequest = async (payload) => {
     setIsLoading(true);
     try {
-      const res = await fetch("http://localhost:4000/register", {
+      const res = await fetch("https://college-miniproject.herokuapp.com/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

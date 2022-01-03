@@ -19,7 +19,7 @@ const Answers = (props) => {
   useEffect(() => {
     const getUserEmail = async () => {
       try {
-        const res = await fetch(`http://localhost:4000/getuser/${by}`);
+        const res = await fetch(`https://college-miniproject.herokuapp.com/getuser/${by}`);
         if (!res.ok) {
           throw new Error(res.status);
         }
@@ -53,7 +53,7 @@ const Answers = (props) => {
 
   const answerRemoveHandler = async () => {
     try {
-      const res = await fetch("http://localhost:4000/deleteanswer", {
+      const res = await fetch("https://college-miniproject.herokuapp.com/deleteanswer", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const Answers = (props) => {
 
       const data = await res.json();
       console.log(data);
-      window.location = "http://localhost:3000"
+      window.location = "https://college-miniproject.herokuapp.com/"
     } catch (err) {
       console.log(err);
     }
@@ -77,7 +77,7 @@ const Answers = (props) => {
 
   const likesHandler = async () => {
     try {
-      const res = await fetch("http://localhost:4000/likes", {
+      const res = await fetch("https://college-miniproject.herokuapp.com/likes", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

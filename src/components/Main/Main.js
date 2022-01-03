@@ -17,7 +17,7 @@ const Main = (props) => {
   useEffect(() => {
     const getQueries = async () => {
       try{
-        const res = await fetch('http://localhost:4000/queries');
+        const res = await fetch('https://college-miniproject.herokuapp.com/queries');
         
         if(!res.ok) {
           throw new Error(res.status);

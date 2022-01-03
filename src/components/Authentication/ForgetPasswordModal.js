@@ -13,7 +13,7 @@ const ForgetPasswordModal = (props) => {
   const sendOTP = async () => {
     try {
       const res = await fetch(
-        `http://localhost:4000/login/forgetpassword/${userEmail}`
+        `https://college-miniproject.herokuapp.com/login/forgetpassword/${userEmail}`
       );
 
       if (!res.ok) {

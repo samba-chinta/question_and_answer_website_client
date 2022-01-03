@@ -7,7 +7,6 @@ const UserQueries = (props) => {
   const [userQuestions, setUserQuestions] = useState([]);
 
   const token = localStorage.getItem('auth-token');
-  console.log(token)
   const userId = JSON.parse(token).id ;
 
   useEffect(() => {
@@ -28,13 +27,13 @@ const UserQueries = (props) => {
     }
     getQueries();
   }, [userId])
-  console.log(userQuestions)
+  
   return (
     <div className={classes["main-wrapper"]}>
       <div className={classes["query-wrapper"]}>
-        {userQuestions ? userQuestions.map((q) => {
+        {userQuestions.length !== 0 ? userQuestions.map((q) => {
           return <QueryField query={q} key={Math.random().toString()} isHome="false"/>;
-        }): ''}
+        }): <h1>You haven't questioned anything!</h1>}
       </div>
     </div>
   );

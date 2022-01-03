@@ -20,6 +20,23 @@
   padding: 10px;
   border-radius: 5px;
   box-shadow: 2px 2px 10px #eee;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+}
+
+.queryfield-wrapper .delete-btn {
+  outline: none;
+  border: none;
+  width: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  align-self: flex-end;
+}
+
+.queryfield-wrapper .delete-btn:hover {
+  background-color: #dd2c00;
+  color: #fff;
 }
 
 .ask-question__btn{

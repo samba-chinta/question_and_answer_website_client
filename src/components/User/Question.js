@@ -13,11 +13,19 @@ const Question = (props) => {
   const [isSuccessful, setIsSuccessful] = useState(false);
   const [isErrorOccurs, setIsErrorOccurs] = useState(false);
 
-  const { _id: question_id, question, user_id: by, link, tags, info } = props.query;
+  const {
+    _id: question_id,
+    question,
+    user_id: by,
+    link,
+    tags,
+    info,
+  } = props.query;
   const numberOfAnswers = props.query.answer.length;
 
   const token = localStorage.getItem("auth-token");
   const answering_user_id = JSON.parse(token).id;
+  // const answering_user_email = JSON.parse(token).email;
 
   useEffect(() => {
     setTimeout(() => {
@@ -39,7 +47,7 @@ const Question = (props) => {
         throw new Error(res.status);
       }
       const data = await res.json();
-      
+
       return data;
     } catch (err) {
       return err;
@@ -60,16 +68,25 @@ const Question = (props) => {
       answer: enteredAnswer,
       question_id,
       answered_by: answering_user_id,
-      asked_by: askedUserEmail
+      asked_by: askedUserEmail,
     })
       .then((res) => {
         setIsSuccessful(true);
+        window.location = "http://localhost:3000/"
       })
       .catch((err) => {
         setIsErrorOccurs(true);
       });
     setEnteredAnswer("");
   };
+
+  const getTagsString = (tags) => {
+    let str = ''
+    for (let tag of tags) {
+      str += tag + ", "
+    }
+    return str.slice(0, str.length-2)
+  }
 
   useEffect(() => {
     const getUserEmail = async () => {
@@ -104,29 +121,42 @@ const Question = (props) => {
       <div>
         <h4 className={classes.question}>{question}</h4>
       </div>
-      <small className={classes.askedby}>by: {askedUserEmail}</small>
-      <p>
-        <b>Tags: </b>
-        {tags.map((tag) => {
-          return <span key={Math.random().toString()}>{`${tag}, `}</span>;
-        })}
-      </p>
-      <div className={classes.addons}>
-        <b>Reference Link: </b>
-        <a href={link}>{link}</a>
-      </div>
-      <div className={classes.info}>
-        <h5>Description: </h5>
-        {info}
-      </div>
-      {props.isHome === 'true' && (
+      {props.isHome === "true" && <small className={classes.askedby}>by: {askedUserEmail}</small>}
+      {tags.length !== 0 && (
+        <p>
+          <b>Tags: </b>
+          {/* {tags.map((tag) => {
+            return <span key={Math.random().toString()}>{`${tag} `}</span>;
+          })} */}
+          <span>{getTagsString(tags)}</span>
+        </p>
+      )}
+      {link !== "" && (
+        <div className={classes.addons}>
+          <b>Reference Link: </b>
+          <a href={link}>{link}</a>
+        </div>
+      )}
+      {info !== "" && (
+        <div className={classes.info}>
+          <h5>Description: </h5>
+          {info}
+        </div>
+      )}
+      {props.isHome === "true" && (
         <form className={classes.answerForm} onSubmit={formSubmitHandler}>
-          <input
+          {/* <input
             type="text"
             placeholder="Answer the question"
             onChange={enterAnswerHandler}
             value={enteredAnswer}
-          />
+          /> */}
+          <textarea
+            placeholder="Answer the Question"
+            onChange={enterAnswerHandler}
+            value={enteredAnswer}
+            className={classes['answer-field']}
+          ></textarea>
           <input type="submit" value="Answer it" />
         </form>
       )}
@@ -137,7 +167,7 @@ const Question = (props) => {
       {isOpened && (
         <div>
           {props.query.answer.map((ans) => {
-            return <Answers userAnswer={ans} key={Math.random().toString()}/>;
+            return <Answers userAnswer={ans} key={Math.random().toString()} />;
           })}
         </div>
       )}

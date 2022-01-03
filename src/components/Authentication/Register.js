@@ -254,7 +254,7 @@ const Register = (props) => {
             type="number"
             min={1}
             max={4}
-            placeholder="Enter the year of studying"
+            placeholder="Enter the year of studying(optional for faculty)"
             className={classes["input_field"]}
             onChange={userStudyingYearHandler}
             value={userStudyingYear}

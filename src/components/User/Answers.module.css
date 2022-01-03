@@ -10,13 +10,17 @@
   gap: 10px auto;
 }
 
+.answers ul li p {
+  white-space:pre-wrap;
+}
+
 .answered_by {
   align-self: flex-end;
 }
 
 .answer-controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 5px;
   margin: 10px 0;
   gap: 10px 0;
@@ -35,10 +39,20 @@
 }
 
 .answer-controls button {
-  width: 50%;
   outline: none;
   border: none;
   padding: 10px;
+  margin: 5px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.answer-controls .like-btn {
+  width: 50px
+}
+
+.answer-controls .delete-btn {
+  width: 40px
 }
 
 .answer-controls button:hover{
@@ -49,7 +63,12 @@
   cursor:not-allowed;
 }
 
-.answer-controls .delete-btn {
-  background-color: orangered;
+.answer-controls .delete-btn:hover {
+  background-color: #dd2c00;
+  color: #fff;
+}
+
+.answer-controls .like-btn:hover {
+  background-color: #43a047;
   color: #fff;
 }

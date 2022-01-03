@@ -12,7 +12,7 @@
 
 .form-wrapper {
   width: 600px;
-  height: 70vh;
+  height: 75vh;
   background-color: #fff;
   padding: 10px;
   border-radius: 5px;
@@ -30,6 +30,8 @@
 .form-wrapper label {
   color: rgba(0, 0, 0, 0.7);
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-field, .form-wrapper textarea {

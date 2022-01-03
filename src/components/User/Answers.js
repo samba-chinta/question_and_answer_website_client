@@ -69,6 +69,7 @@ const Answers = (props) => {
 
       const data = await res.json();
       console.log(data);
+      window.location = "http://localhost:3000"
     } catch (err) {
       console.log(err);
     }
@@ -104,7 +105,7 @@ const Answers = (props) => {
       <div className={classes["answers"]}>
         <ul>
           <li>
-            <h5>{answer}</h5>
+            <p>{answer}</p>
           </li>
         </ul>
         <small className={classes["answered_by"]}>
@@ -126,13 +127,11 @@ const Answers = (props) => {
               onClick={answerRemoveHandler}
             >
               <Trash />
-              Delete
             </button>
           )}
           {!isEligibleForDelete && (
             <button className={classes["delete-btn"]} disabled>
               <Trash />
-              Delete
             </button>
           )}
         </div>

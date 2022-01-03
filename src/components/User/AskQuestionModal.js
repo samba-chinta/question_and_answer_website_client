@@ -24,6 +24,10 @@ const AskQuestionModal = () => {
     setQueryDetails(e.target.value);
   };
 
+  const tagsHandler = (e) => {
+    setQuestionTags(e.target.value);
+  };
+
   // const selectedFileHandler = (e) => {
   //   console.log(e.target.files[0])
   //   setSelectedFile({...e.target.files[0]});
@@ -52,8 +56,8 @@ const AskQuestionModal = () => {
 
       const data = await res.json();
 
-      if(data.status === 201) {
-        window.location = "http://localhost:3000/"
+      if (data.status === 201) {
+        window.location = "http://localhost:3000/";
       }
     } catch (err) {
       console.log(err);
@@ -61,11 +65,6 @@ const AskQuestionModal = () => {
   };
 
   const formSubmitHandler = (e) => {
-    const tags = document.getElementById("qstnTags").value;
-    for (let tag of tags.split(" ")) {
-      setQuestionTags((prev) => [...prev, tag]);
-    }
-
     askQuestionReqHandler();
     e.preventDefault();
     setUserQuestion("");
@@ -98,10 +97,12 @@ const AskQuestionModal = () => {
             name="tags"
             className={classes["input-field"]}
             id="qstnTags"
+            onChange={tagsHandler}
           />
+          <small>Separate each tag by space</small>
         </label>
         <label htmlFor="links">
-          Reference Link
+          Reference Link (optional)
           <input
             type="text"
             name="lins"
@@ -109,15 +110,18 @@ const AskQuestionModal = () => {
             id="links"
             onChange={refLinkHandler}
           />
+          <small>i.e. link where you are referring to</small>
         </label>
         <label>
-          Any Additional details
+          Any Additional details (optional)
           <textarea
             rows={2}
             cols={30}
             onChange={queryDetailsHandler}
-            className={classes['textarea']}
+            className={classes["textarea"]}
           ></textarea>
+          <small>i.e. give the details of what makes you asking 
+          this question like code, any description</small>
         </label>
         {/* <label htmlFor="myfile">
           Upload your reference files if any

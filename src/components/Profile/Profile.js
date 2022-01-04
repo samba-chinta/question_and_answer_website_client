@@ -6,17 +6,24 @@ import classes from "./Profile.module.css";
 const Profile = (props) => {
   const userEmail = useSelector((state) => state.email);
   const [profile, setProfile] = useState({
-    name: '',
-    email: '',
-    branch: '',
-    year: '',
-    image: ''
+    name: "",
+    email: "",
+    branch: "",
+    year: "",
+    image: "",
   });
+
+  const removeUserHandler = async () => {
+    console.log("Delete User");
+    
+  };
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch(`https://college-miniproject.herokuapp.com/profile/${userEmail}`);
+        const res = await fetch(
+          `https://college-miniproject.herokuapp.com/profile/${userEmail}`
+        );
         if (!res.ok) {
           throw new Error(res.status);
         }
@@ -51,6 +58,9 @@ const Profile = (props) => {
           <b>Year: </b>
           {profile.year ? profile.year : ""}
         </p>
+        <button className={classes["deactive-btn"]} onClick={removeUserHandler}>
+          Deactive Account
+        </button>
       </div>
     </div>
   );

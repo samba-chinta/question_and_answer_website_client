@@ -19,6 +19,19 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
+.deactive-btn {
+  outline: none;
+  border: solid 1px red;
+  background: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.deactive-btn:hover {
+  background-color: red;
+  color: #fff;
+}
+
 @media screen and (max-width: 750px){
   .profile-wrapper {
     flex-direction: column;

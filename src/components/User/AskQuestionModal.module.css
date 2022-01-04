@@ -68,10 +68,10 @@
 @media screen and (max-width: 620px) {
   .form-wrapper {
     width: 320px;
-    height: 95vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    /* gap: 5px; */
   }
   .input-field{
     padding: 5px;

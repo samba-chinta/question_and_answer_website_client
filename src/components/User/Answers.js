@@ -119,7 +119,7 @@ const Answers = (props) => {
             onClick={likesHandler}
           >
             <Like />
-            {likes}
+            {isLiked ? likes + 1 : likes}
           </button>
           {isEligibleForDelete && (
             <button

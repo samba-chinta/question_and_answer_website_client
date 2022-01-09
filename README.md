@@ -1,5 +1,4 @@
-### mini project
-
+### Mini project
 ## Project Structure
 ```
 ├── src

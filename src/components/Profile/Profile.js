@@ -53,7 +53,7 @@ const Profile = (props) => {
           throw new Error(res.status);
         }
         const userProfile = await res.json();
-        console.log(userProfile)
+        // console.log(userProfile)
         setProfile(userProfile);
       } catch (err) {
         console.error(err);

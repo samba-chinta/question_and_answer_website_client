@@ -55,6 +55,14 @@
   transform: scale(0.98);
 }
 
+.query-search {
+  outline: none;
+  border: solid 1px #000;
+  padding: 5px;
+  width: 80%;
+  margin: 10px auto;
+}
+
 @media screen and (max-width: 420px){
   .main-wrapper {
     width: 98%;
@@ -67,6 +75,9 @@
   }
   .wrapper {
     padding: 10px;
+  }
+  .query-search {
+    width: 100%;
   }
 }
 
@@ -82,5 +93,8 @@
   }
   .wrapper {
     padding: 10px;
+  }
+  .query-search {
+    width: 100%;
   }
 }

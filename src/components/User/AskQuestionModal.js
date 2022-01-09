@@ -43,7 +43,7 @@ const AskQuestionModal = () => {
         body: JSON.stringify({
           user_id,
           question: userQuestion,
-          tags: questionTags,
+          tags: questionTags.toLowerCase(),
           link: refLink === "" ? "" : refLink,
           info: queryDetails === "" ? "" : queryDetails,
           // file: "Hi",

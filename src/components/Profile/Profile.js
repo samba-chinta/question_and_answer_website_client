@@ -6,6 +6,7 @@ import classes from "./Profile.module.css";
 const Profile = (props) => {
   const userEmail = useSelector((state) => state.email);
   const [profile, setProfile] = useState({
+    _id: "",
     name: "",
     email: "",
     branch: "",
@@ -14,8 +15,31 @@ const Profile = (props) => {
   });
 
   const removeUserHandler = async () => {
-    console.log("Delete User");
-    
+    try {
+      const res = await fetch(
+        "https://college-miniproject.herokuapp.com/deleteuser"
+        // "http://localhost:5000/deleteuser"
+        , {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: profile._id,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error(res.status);
+      }
+
+      const data = await res.json();
+      console.log(data);
+      localStorage.removeItem('auth-token')
+      window.location = "https://question-and-answer-website.vercel.app/"
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
@@ -23,11 +47,13 @@ const Profile = (props) => {
       try {
         const res = await fetch(
           `https://college-miniproject.herokuapp.com/profile/${userEmail}`
+          // `http://localhost:5000/profile/${userEmail}`
         );
         if (!res.ok) {
           throw new Error(res.status);
         }
         const userProfile = await res.json();
+        console.log(userProfile)
         setProfile(userProfile);
       } catch (err) {
         console.error(err);

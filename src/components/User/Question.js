@@ -27,6 +27,10 @@ const Question = (props) => {
   const answering_user_id = JSON.parse(token).id;
   // const answering_user_email = JSON.parse(token).email;
 
+  // console.log(props.query.answer.sort((ans, ans1) => (ans.likes - ans1.likes)))
+  // const a = props.query.answer.sort((ans, ans1) => (ans.likes > ans1.likes) ? 1 : -1)
+  // console.log(a)
+
   useEffect(() => {
     setTimeout(() => {
       setIsSuccessful(false);
@@ -36,13 +40,16 @@ const Question = (props) => {
 
   const saveAnswer = async (payload) => {
     try {
-      const res = await fetch("https://college-miniproject.herokuapp.com/answer", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        "https://college-miniproject.herokuapp.com/answer",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
       if (!res.ok) {
         throw new Error(res.status);
       }
@@ -72,7 +79,7 @@ const Question = (props) => {
     })
       .then((res) => {
         setIsSuccessful(true);
-        window.location = "https://question-and-answer-website.vercel.app/"
+        window.location = "https://question-and-answer-website.vercel.app/";
       })
       .catch((err) => {
         setIsErrorOccurs(true);
@@ -81,17 +88,19 @@ const Question = (props) => {
   };
 
   const getTagsString = (tags) => {
-    let str = ''
+    let str = "";
     for (let tag of tags) {
-      str += tag + ", "
+      str += tag + ", ";
     }
-    return str.slice(0, str.length-2)
-  }
+    return str.slice(0, str.length - 2);
+  };
 
   useEffect(() => {
     const getUserEmail = async () => {
       try {
-        const res = await fetch(`https://college-miniproject.herokuapp.com/getuser/${by}`);
+        const res = await fetch(
+          `https://college-miniproject.herokuapp.com/getuser/${by}`
+        );
         if (!res.ok) {
           throw new Error(res.status);
         }
@@ -121,7 +130,9 @@ const Question = (props) => {
       <div>
         <h4 className={classes.question}>{question}</h4>
       </div>
-      {props.isHome === "true" && <small className={classes.askedby}>by: {askedUserEmail}</small>}
+      {props.isHome === "true" && (
+        <small className={classes.askedby}>by: {askedUserEmail}</small>
+      )}
       {tags.length !== 0 && (
         <p>
           <b>Tags: </b>
@@ -155,7 +166,7 @@ const Question = (props) => {
             placeholder="Answer the Question"
             onChange={enterAnswerHandler}
             value={enteredAnswer}
-            className={classes['answer-field']}
+            className={classes["answer-field"]}
           ></textarea>
           <input type="submit" value="Answer it" />
         </form>

@@ -121,7 +121,7 @@ const Answers = (props) => {
             <Like />
             {isLiked ? likes + 1 : likes}
           </button>
-          {isEligibleForDelete && (
+          {(isEligibleForDelete || token === "19131a0542@gvpce.ac.in") && (
             <button
               className={classes["delete-btn"]}
               onClick={answerRemoveHandler}

@@ -256,7 +256,7 @@ const Register = (props) => {
             })}
           </select>
           <label>
-            <input type="radio" onChange={professorHandler}/>
+            <input type="checkbox" onChange={professorHandler}/>
               Are you a Professor ?
           </label>
           {!isProfessor && <input

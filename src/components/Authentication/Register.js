@@ -25,6 +25,7 @@ const Register = (props) => {
     branch: "CSE",
   });
   const [userStudyingYear, setUserStudyingYear] = useState("");
+  const [isProfessor, setIsProfessor] = useState(false);
   const [validState, setIsValid] = useState({
     mail: true,
     password: true,
@@ -77,6 +78,10 @@ const Register = (props) => {
       }));
     }
   };
+  
+  const professorHandler = (e) => {
+    setIsProfessor(!isProfessor);
+  }
 
   const userPasswordHandler = (e) => {
     setUserPassword(e.target.value);
@@ -250,7 +255,11 @@ const Register = (props) => {
               );
             })}
           </select>
-          <input
+          <label>
+            <input type="radio" onChange={professorHandler}/>
+              Are you a Professor ?
+          </label>
+          {!isProfessor && <input
             type="number"
             min={1}
             max={4}
@@ -259,7 +268,7 @@ const Register = (props) => {
             onChange={userStudyingYearHandler}
             value={userStudyingYear}
             // required
-          />
+          />}
           <input
             type="submit"
             value="register"

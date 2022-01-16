@@ -23,6 +23,24 @@ const Question = (props) => {
   } = props.query;
   const numberOfAnswers = props.query.answer.length;
 
+  const sortAnswersHandler = (arr) => {
+    if (arr.length <= 1) {
+      return arr;
+    }
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length-i-1; j++) {
+        if (arr[j].likes < arr[j+1].likes) {
+          let temp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
+        }
+      }
+    }
+    return arr;
+  }
+
+  const sorted_answers = sortAnswersHandler(props.query.answer)
+  
   const token = localStorage.getItem("auth-token");
   const answering_user_id = JSON.parse(token).id;
   // const answering_user_email = JSON.parse(token).email;
@@ -177,7 +195,7 @@ const Question = (props) => {
       </div>
       {isOpened && (
         <div>
-          {props.query.answer.map((ans) => {
+          {sorted_answers.map((ans) => {
             return <Answers userAnswer={ans} key={Math.random().toString()} />;
           })}
         </div>

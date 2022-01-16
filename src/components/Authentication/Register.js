@@ -258,7 +258,7 @@ const Register = (props) => {
             className={classes["input_field"]}
             onChange={userStudyingYearHandler}
             value={userStudyingYear}
-            required
+            // required
           />
           <input
             type="submit"

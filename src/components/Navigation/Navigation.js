@@ -23,7 +23,7 @@ const Navigation = (props) => {
       className={classes["navigation-navbar"]}
     >
       <Container>
-        <Navbar.Brand href="#home">GVP Quora</Navbar.Brand>
+        <Navbar.Brand href="#home">Q&A Application</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse
           id="responsive-navbar-nav"

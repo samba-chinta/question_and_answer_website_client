@@ -50,6 +50,7 @@ const Register = (props) => {
     try {
       const res = await fetch("https://college-miniproject.herokuapp.com/register", {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },

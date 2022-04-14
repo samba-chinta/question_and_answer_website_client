@@ -29,7 +29,7 @@ const Login = (props) => {
   const sendRequest = async (payload) => {
     setIsLoading(true);
     try {
-      const res = await fetch("https://college-miniproject.herokuapp.com/login", {
+      const res = await fetch("https://qstn-and-ans.herokuapp.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

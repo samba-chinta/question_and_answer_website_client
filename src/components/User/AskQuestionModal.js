@@ -35,7 +35,7 @@ const AskQuestionModal = () => {
 
   const askQuestionReqHandler = async () => {
     try {
-      const res = await fetch("https://college-miniproject.herokuapp.com/createquery", {
+      const res = await fetch("https://qstn-and-ans.herokuapp.com/createquery", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

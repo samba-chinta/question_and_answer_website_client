@@ -14,7 +14,7 @@ const ResetPassword = () => {
 
   const resetPasswordHandler = async () => {
     try {
-      const res = await fetch("https://college-miniproject.herokuapp.com/login/resetpassword", {
+      const res = await fetch("https://qstn-and-ans.herokuapp.com/login/resetpassword", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -48,7 +48,7 @@ const Register = (props) => {
   const sendRequest = async (payload) => {
     setIsLoading(true);
     try {
-      const res = await fetch("https://college-miniproject.herokuapp.com/register", {
+      const res = await fetch("https://qstn-and-ans.herokuapp.com/register", {
         method: "POST",
         mode: "no-cors",
         headers: {

@@ -30,7 +30,7 @@ const Main = (props) => {
     const getQueries = async () => {
       try {
         const res = await fetch(
-          "https://college-miniproject.herokuapp.com/queries"
+          "https://qstn-and-ans.herokuapp.com/queries"
         );
 
         if (!res.ok) {

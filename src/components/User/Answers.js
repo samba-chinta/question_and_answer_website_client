@@ -19,7 +19,7 @@ const Answers = (props) => {
   useEffect(() => {
     const getUserEmail = async () => {
       try {
-        const res = await fetch(`https://college-miniproject.herokuapp.com/getuser/${by}`);
+        const res = await fetch(`https://qstn-and-ans.herokuapp.com/getuser/${by}`);
         if (!res.ok) {
           throw new Error(res.status);
         }
@@ -53,7 +53,7 @@ const Answers = (props) => {
 
   const answerRemoveHandler = async () => {
     try {
-      const res = await fetch("https://college-miniproject.herokuapp.com/deleteanswer", {
+      const res = await fetch("https://qstn-and-ans.herokuapp.com/deleteanswer", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const Answers = (props) => {
 
   const likesHandler = async () => {
     try {
-      const res = await fetch("https://college-miniproject.herokuapp.com/likes", {
+      const res = await fetch("https://qstn-and-ans.herokuapp.com/likes", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

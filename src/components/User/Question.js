@@ -59,7 +59,7 @@ const Question = (props) => {
   const saveAnswer = async (payload) => {
     try {
       const res = await fetch(
-        "https://college-miniproject.herokuapp.com/answer",
+        "https://qstn-and-ans.herokuapp.com/answer",
         {
           method: "POST",
           headers: {

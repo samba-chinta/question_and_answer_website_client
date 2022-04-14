@@ -17,7 +17,7 @@ const Profile = (props) => {
   const removeUserHandler = async () => {
     try {
       const res = await fetch(
-        "https://college-miniproject.herokuapp.com/deleteuser"
+        "https://qstn-and-ans.herokuapp.com/deleteuser"
         // "http://localhost:5000/deleteuser"
         , {
         method: "PUT",
@@ -46,7 +46,7 @@ const Profile = (props) => {
     const fetchProfile = async () => {
       try {
         const res = await fetch(
-          `https://college-miniproject.herokuapp.com/profile/${userEmail}`
+          `https://qstn-and-ans.herokuapp.com/profile/${userEmail}`
           // `http://localhost:5000/profile/${userEmail}`
         );
         if (!res.ok) {

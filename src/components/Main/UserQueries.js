@@ -12,7 +12,7 @@ const UserQueries = (props) => {
   useEffect(() => {
     const getQueries = async () => {
       try{
-        const res = await fetch(`https://college-miniproject.herokuapp.com/userqueries/${userId}`);
+        const res = await fetch(`https://qstn-and-ans.herokuapp.com/userqueries/${userId}`);
         
         if(!res.ok) {
           throw new Error(res.status);

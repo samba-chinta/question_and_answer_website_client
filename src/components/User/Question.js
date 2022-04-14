@@ -117,7 +117,7 @@ const Question = (props) => {
     const getUserEmail = async () => {
       try {
         const res = await fetch(
-          `https://college-miniproject.herokuapp.com/getuser/${by}`
+          `https://qstn-and-ans.herokuapp.com/getuser/${by}`
         );
         if (!res.ok) {
           throw new Error(res.status);
